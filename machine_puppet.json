@@ -7,7 +7,7 @@
     "provisioners":[
         {
             "type": "shell",
-            "inline": ["yum update -y; yum install sudo -y; yum install -y puppet-common"]
+            "inline": ["yum update -y; yum install sudo -y; yum install -y puppet"]
         },
         {
             "type": "puppet-masterless",
