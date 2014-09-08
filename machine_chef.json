@@ -1,0 +1,25 @@
+{
+    "builders":[{
+        "type": "docker",
+        "image": "centos:latest",
+        "export_path": "image.tar"
+    }],
+    "provisioners":[
+        {
+            "type": "shell",
+            "inline": ["yum update -y"]
+        },
+        {
+            "type": "chef-solo",
+            "cookbook_paths": ["site-cookbooks"],
+            "run_list": ["apache::default"]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "docker-import",
+            "repository": "tcnksm/packer-chef",
+            "tag": "0.1"
+        }
+    ]
+}
