@@ -7,7 +7,7 @@
     "provisioners":[
         {
             "type": "shell",
-            "inline": ["yum update -y"]
+            "inline": ["yum update -y; yum install sudo -y"]
         },
         {
             "type": "chef-solo",
@@ -18,7 +18,7 @@
     "post-processors": [
         {
             "type": "docker-import",
-            "repository": "tcnksm/packer-chef",
+            "repository": "cblackburn/packer-chef",
             "tag": "0.1"
         }
     ]
